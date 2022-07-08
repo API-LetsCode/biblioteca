@@ -2,8 +2,6 @@
 // const routes = express.Router();
 
 // routes.use('/livro', (req, res) => res.json({ message: 'Funcionando!' }));
-
-
 // module.exports = routes;
 
 

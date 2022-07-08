@@ -35,7 +35,7 @@ module.exports = {
   // setVehicleAvailable,
   // setVehicleBusy,
   // getAvailableVehicle,
-  createVehicleAutomatic,
+  // createVehicleAutomatic,
   create,
   // paginate,
   // findById,
