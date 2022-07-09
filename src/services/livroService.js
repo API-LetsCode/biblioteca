@@ -25,6 +25,29 @@ const cadastrar = async (body) => {
   
   };
 
+  const show = async () => {
+    try {
+      const Livro = await RepositorioLivro.getLivroDisponivel();
+      if (!Livro) {
+        return {
+          statusCode: 404,
+          data: 'Nenhum livro encontrado!'
+        }
+      }
+      return {
+        statusCode: 200,
+        data: Livro
+      }
+    }
+    catch (error) {
+      return {
+        statusCode: 500,
+        data: error
+      }
+    }
+  
+  };
+
 
 
 
@@ -51,28 +74,7 @@ const cadastrar = async (body) => {
 
 // };
 
-// const show = async (id) => {
-//   try {
-//     const vehicles = await vehicleRepository.findById(id);
-//     if (!vehicles) {
-//       return {
-//         statusCode: 404,
-//         data: 'Nenhum veículo encontrado!'
-//       }
-//     }
-//     return {
-//       statusCode: 200,
-//       data: vehicles
-//     }
-//   }
-//   catch (error) {
-//     return {
-//       statusCode: 500,
-//       data: error
-//     }
-//   }
 
-// };
 
 
 
@@ -128,5 +130,6 @@ const cadastrar = async (body) => {
 // };
 
 module.exports = {
-  cadastrar
+  cadastrar,
+  show
 };

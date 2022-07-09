@@ -9,6 +9,12 @@ const cadastrar = async (req, res) => {
     return res.status(response.statusCode).json(response.data);
   };
 
+  const show = async (req, res) => {
+    // const id = req.params.id;
+    const response = await livroService.show();
+    return res.status(response.statusCode).json(response.data);
+  
+  };
 
 
 // const index = async (req, res) => {
@@ -17,12 +23,6 @@ const cadastrar = async (req, res) => {
 //   return res.status(response.statusCode).json(response.data);
 // };
 
-// const show = async (req, res) => {
-//   const id = req.params.id;
-//   const response = await vehicleService.show(id);
-//   return res.status(response.statusCode).json(response.data);
-
-// };
 
 // const update = async (req, res) => {
 //   const id = req.params.id;
@@ -39,5 +39,6 @@ const cadastrar = async (req, res) => {
 // };
 
 module.exports = {
-  cadastrar
+  cadastrar,
+  show
 };

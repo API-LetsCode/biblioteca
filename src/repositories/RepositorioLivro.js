@@ -2,16 +2,16 @@ const Livro = require('../models/livros');
 
 
 const create = async (body) => {
-  return await Livro.create({body});
+  return await Livro.create(body);
 }
 
 // const paginate = async (page) => {
 //   return await Vehicle.paginate({}, { page, limit: 10 });
 // }
 
-// const getAvailableVehicle = async () => {
-//   return await Vehicle.findOne({ status: 'available' })
-// }
+const getLivroDisponivel = async () => {
+  return await Livro.find()
+}
 // const setVehicleBusy = async (vehicle) => {
 //   vehicle.status = 'busy'
 //   return await Vehicle.findByIdAndUpdate(vehicle._id, vehicle);
@@ -34,7 +34,7 @@ const create = async (body) => {
 module.exports = {
   // setVehicleAvailable,
   // setVehicleBusy,
-  // getAvailableVehicle,
+  getLivroDisponivel,
   // createVehicleAutomatic,
   create,
   // paginate,

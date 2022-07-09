@@ -7,7 +7,7 @@ const livrosRoutes = express.Router();
 const livroController = require('../controllers/livroController');
 // routesVehicle.get('', verifyJWT, VehicleController.index);
 livrosRoutes.post('', livroController.cadastrar);
-// routesVehicle.get('/:id', verifyJWT, VehicleController.show);
+livrosRoutes.get('', livroController.show);
 // routesVehicle.put('/:id', verifyJWT, VehicleController.update);
 // routesVehicle.delete('/:id', verifyJWT, VehicleController.destroy);
 
