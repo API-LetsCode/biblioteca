@@ -4,6 +4,7 @@ const livroService = require('../services/livroService');
 const cadastrar = async (req, res) => {
     console.log("Estou aqui no Livro controller")
     const livro = req.body;
+    console.log(livro)
     const response = await livroService.cadastrar(livro);
     return res.status(response.statusCode).json(response.data);
   };

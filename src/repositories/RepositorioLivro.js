@@ -2,7 +2,7 @@ const Livro = require('../models/livros');
 
 
 const create = async (body) => {
-  return await Livro.create(body);
+  return await Livro.create({body});
 }
 
 // const paginate = async (page) => {

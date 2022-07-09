@@ -6,7 +6,7 @@ const livrosRoutes = express.Router();
 // importando o controller
 const livroController = require('../controllers/livroController');
 // routesVehicle.get('', verifyJWT, VehicleController.index);
-routesVehicle.post('', livroController.cadastrar);
+livrosRoutes.post('', livroController.cadastrar);
 // routesVehicle.get('/:id', verifyJWT, VehicleController.show);
 // routesVehicle.put('/:id', verifyJWT, VehicleController.update);
 // routesVehicle.delete('/:id', verifyJWT, VehicleController.destroy);

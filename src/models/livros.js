@@ -1,11 +1,11 @@
 //Criando o Schema
 
 const mongoose = require('mongoose');
-const mongoosePaginate = require('mongoose-paginate');
+// const mongoosePaginate = require('mongoose-paginate');
 
 
 const LivroSchema = new mongoose.Schema({
-  nome: {
+  titulo: {
     type: String,
     required: true
   },
@@ -34,13 +34,13 @@ const LivroSchema = new mongoose.Schema({
     required: false
   },
   lancamento:{
-    type: Date,
+    type: String,
     required: false
   }
 });
 
 // Registrando o mongoose paginate da Aplicação
-LivroSchema.plugin(mongoosePaginate);
+// LivroSchema.plugin(mongoosePaginate);
 
 // Registrando o schema
 module.exports = mongoose.model('Livro', LivroSchema);

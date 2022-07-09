@@ -3,6 +3,7 @@ const RepositorioLivro = require('../repositories/RepositorioLivro');
 
 const cadastrar = async (body) => {
     try {
+      console.log("estou na service")
       const livros = await RepositorioLivro.create(body);
       if (!livros) {
         return {

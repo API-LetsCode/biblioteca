@@ -26,10 +26,10 @@ mongoose.connect(
 );
 
 // Fazendo o Require do Schema
-// requireDir('./src/models');
+ requireDir('./models');
 
 // consumindo a rota
-app.use('/api', require('./src/routers/index.routes'));
+app.use('/api', require('./routers/index.routes'));
 app.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 
 
