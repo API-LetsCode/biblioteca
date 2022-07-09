@@ -8,7 +8,7 @@ const livroController = require('../controllers/livroController');
 // routesVehicle.get('', verifyJWT, VehicleController.index);
 livrosRoutes.post('', livroController.cadastrar);
 livrosRoutes.get('', livroController.show);
-// routesVehicle.put('/:id', verifyJWT, VehicleController.update);
+routesVehicle.put('/:titulo', livroController.update);
 // routesVehicle.delete('/:id', verifyJWT, VehicleController.destroy);
 
 module.exports = livrosRoutes;

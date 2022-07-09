@@ -49,6 +49,30 @@ const cadastrar = async (body) => {
   };
 
 
+  const update = async (titulo, livroUpdate) => {
+    try {
+      const livro = await RepositorioLivro.findByTituloAndUpdate(titulo, livroUpdate, { new: true });
+      if (!livro) {
+        return {
+          statusCode: 404,
+          data: 'Nenhum livro encontrado!'
+        }
+      }
+      return {
+        statusCode: 200,
+        data: livro
+      }
+    }
+    catch (error) {
+      return {
+        statusCode: 500,
+        data: error
+      }
+    }
+  
+  };
+
+
 
 
 // const index = async (page) => {
@@ -76,30 +100,6 @@ const cadastrar = async (body) => {
 
 
 
-
-
-// const update = async (id, vehicleUpdate) => {
-//   try {
-//     const vehicles = await vehicleRepository.findByIdAndUpdate(id, vehicleUpdate, { new: true });
-//     if (!vehicles) {
-//       return {
-//         statusCode: 404,
-//         data: 'Nenhum veículo encontrado!'
-//       }
-//     }
-//     return {
-//       statusCode: 200,
-//       data: vehicles
-//     }
-//   }
-//   catch (error) {
-//     return {
-//       statusCode: 500,
-//       data: error
-//     }
-//   }
-
-// };
 
 // const destroy = async (id) => {
 //   try {
@@ -131,5 +131,6 @@ const cadastrar = async (body) => {
 
 module.exports = {
   cadastrar,
-  show
+  show,
+  update
 };

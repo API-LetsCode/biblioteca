@@ -17,6 +17,14 @@ const cadastrar = async (req, res) => {
   };
 
 
+const update = async (req, res) => {
+  const titulo = req.params.titulo;
+  const livro = req.body;
+  const response = await livroService.update(titulo, livro);
+  return res.status(response.statusCode).json(response.data);
+
+};
+
 // const index = async (req, res) => {
 //   const { page = 1 } = req.query;
 //   const response = await vehicleService.index(page);
@@ -24,13 +32,6 @@ const cadastrar = async (req, res) => {
 // };
 
 
-// const update = async (req, res) => {
-//   const id = req.params.id;
-//   const vehicle = req.body;
-//   const response = await vehicleService.update(id, vehicle);
-//   return res.status(response.statusCode).json(response.data);
-
-// };
 
 // const destroy = async (req, res) => {
 //   const id = req.params.id;
@@ -40,5 +41,6 @@ const cadastrar = async (req, res) => {
 
 module.exports = {
   cadastrar,
-  show
+  show,
+  update
 };
