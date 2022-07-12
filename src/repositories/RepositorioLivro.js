@@ -9,10 +9,13 @@ const getLivroDisponivel = async () => {
   return await Livro.find()
 }
 
-const findByTituloAndUpdate = async (titulo, body) => {
-  return await Vehicle.findByIdAndUpdate(req.params.titulo, req.body, { new: true });
+const findByIDAndUpdate = async (id, body) => {
+  return await Livro.findOneAndUpdate({_id:id}, body);
 }
 
+const findByIdAndRemove = async (id) => {
+  return await Livro.findByIdAndRemove(id);
+}
 
 // const paginate = async (page) => {
 //   return await Vehicle.paginate({}, { page, limit: 10 });
@@ -30,9 +33,7 @@ const findByTituloAndUpdate = async (titulo, body) => {
 //   return await Vehicle.findById(id);
 // }
 
-// const findByIdAndRemove = async (id) => {
-//   return await Vehicle.findByIdAndRemove(id);
-// }
+
 
 
 module.exports = {
@@ -43,6 +44,6 @@ module.exports = {
   create,
   // paginate,
   // findById,
-  findByTituloAndUpdate,
-  // findByIdAndRemove
+  findByIDAndUpdate,
+  findByIdAndRemove
 }

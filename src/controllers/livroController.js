@@ -1,28 +1,30 @@
-const livroService = require('../services/livroService');
-
+const livroService = require("../services/livroService");
 
 const cadastrar = async (req, res) => {
-    console.log("Estou aqui no Livro controller")
-    const livro = req.body;
-    console.log(livro)
-    const response = await livroService.cadastrar(livro);
-    return res.status(response.statusCode).json(response.data);
-  };
+  console.log("Estou aqui no Livro controller");
+  const livro = req.body;
+  console.log(livro);
+  const response = await livroService.cadastrar(livro);
+  return res.status(response.statusCode).json(response.data);
+};
 
-  const show = async (req, res) => {
-    // const id = req.params.id;
-    const response = await livroService.show();
-    return res.status(response.statusCode).json(response.data);
-  
-  };
-
+const show = async (req, res) => {
+  // const id = req.params.id;
+  const response = await livroService.show();
+  return res.status(response.statusCode).json(response.data);
+};
 
 const update = async (req, res) => {
-  const titulo = req.params.titulo;
+  const id = req.params.id;
   const livro = req.body;
-  const response = await livroService.update(titulo, livro);
+  const response = await livroService.update(id, livro);
   return res.status(response.statusCode).json(response.data);
+};
 
+const destroy = async (req, res) => {
+  const id = req.params.id;
+  const response = await livroService.destroy(id);
+  return res.status(response.statusCode).json(response.data);
 };
 
 // const index = async (req, res) => {
@@ -31,16 +33,9 @@ const update = async (req, res) => {
 //   return res.status(response.statusCode).json(response.data);
 // };
 
-
-
-// const destroy = async (req, res) => {
-//   const id = req.params.id;
-//   const response = await vehicleService.destroy(id);
-//   return res.status(response.statusCode).json(response.data);
-// };
-
 module.exports = {
   cadastrar,
   show,
-  update
+  update,
+  destroy
 };
