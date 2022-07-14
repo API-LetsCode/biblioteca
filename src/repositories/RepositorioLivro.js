@@ -5,6 +5,10 @@ const create = async (body) => {
   return await Livro.create(body);
 }
 
+const findByName = async (titulo) => {
+  return await Livro.findOne({titulo:titulo});
+}
+
 const getLivroDisponivel = async () => {
   return await Livro.find()
 }
@@ -45,5 +49,6 @@ module.exports = {
   // paginate,
   // findById,
   findByIDAndUpdate,
-  findByIdAndRemove
+  findByIdAndRemove,
+  findByName
 }

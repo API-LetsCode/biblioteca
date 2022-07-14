@@ -3,14 +3,16 @@ const RepositorioLivro = require('../repositories/RepositorioLivro');
 
 const cadastrar = async (body) => {
     try {
-      console.log("estou na service")
-      const livros = await RepositorioLivro.create(body);
-      if (!livros) {
+      // console.log("estou na service")
+      const { titulo, autor, editora, quantidadeDisponivel, quantidadeACadastrar } = body;
+      const findLivro = await RepositorioLivro.findByName(titulo);
+      if (findLivro) {
         return {
           statusCode: 404,
           data: 'Livro já cadastrado na base'
         }
       }
+      const livros = await RepositorioLivro.create(body);
       return {
         statusCode: 200,
         data: livros
@@ -24,6 +26,8 @@ const cadastrar = async (body) => {
     }
   
   };
+
+
 
   const show = async () => {
     try {
