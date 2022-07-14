@@ -1,10 +1,13 @@
 const RepositorioLivro = require('../repositories/RepositorioLivro');
+require("dotenv").config({
+  path: process.env.NODE_ENV === "test" ? ".env.test" : ".env"
+});
 
 
 const cadastrar = async (body) => {
     try {
       // console.log("estou na service")
-      const { titulo, autor, editora, quantidadeDisponivel, quantidadeACadastrar } = body;
+      const { titulo, autor, editora, quantidadeDisponivel, quantidadeACadastrar, edicao, numPags, lancamento} = body;
       const findLivro = await RepositorioLivro.findByName(titulo);
       if (findLivro) {
         return {

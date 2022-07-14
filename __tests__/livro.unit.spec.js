@@ -9,17 +9,15 @@ const livrosModel = require('../src/models/livros');
 
 
 // precisamos limpar
-// afterEach(() => {
-//   jest.restoreAllMocks();
-// });
+afterEach(() => {
+  jest.restoreAllMocks();
+});
 
 /*beforeEach(() => {
 
 });*/
 
-jest.setTimeout(3000)
-
-// jest.setTimeout(6000)
+jest.setTimeout(60000)
 
 describe('Teste de Unidade do Livro', () => {
   test('Deverá incluir o Livro se o mesmo não existir na base', async () => {
@@ -41,12 +39,15 @@ describe('Teste de Unidade do Livro', () => {
     mockingoose(livrosModel).toReturn(null, 'findOne');
 
     const response = await livroService.cadastrar(data);
-    expect(response.statusCode).toBe(201);
+    expect(response.statusCode).toBe(200);
     expect(response.data.titulo).toBe('As aventuras de Teste');
     expect(response.data.autor).toBe('teste');
     expect(response.data.editora).toBe('teste');
     expect(response.data.quantidadeDisponivel).toBe(1);
     expect(response.data.quantidadeACadastrar).toBe(1);
+    expect(response.data.edicao).toBe(1);
+    expect(response.data.numPags).toBe(99);
+    expect(response.data.lancamento).toBe('2020/07/11');
 
   });
 
